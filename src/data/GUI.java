@@ -56,6 +56,9 @@ public class GUI extends javax.swing.JFrame {
         frameNotes = new javax.swing.JFrame();
         frameQuestions = new javax.swing.JFrame();
         btnGChoices = new javax.swing.ButtonGroup();
+        btnStudy = new javax.swing.JButton();
+        btnQuiz = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         frameQuiz.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -176,15 +179,34 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnStudy.setText("Study the Notes!");
+
+        btnQuiz.setText("Take the Quiz!");
+
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnStudy)
+                    .addComponent(btnQuiz)
+                    .addComponent(jButton1))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(btnStudy)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnQuiz)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,10 +275,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.ButtonGroup btnGChoices;
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnQuiz;
     private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnStudy;
     private javax.swing.JFrame frameNotes;
     private javax.swing.JFrame frameQuestions;
     private javax.swing.JFrame frameQuiz;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMark;
