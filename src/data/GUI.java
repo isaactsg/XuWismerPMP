@@ -3,12 +3,9 @@
  */
 package data;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,7 +23,7 @@ public class GUI extends javax.swing.JFrame {
         try {
             readQuestions();
         } catch (IOException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: " + ex.toString());
         }
     }
 
