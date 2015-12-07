@@ -20,11 +20,16 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        setLocationRelativeTo(null);
+        frameQuestions.setLocationRelativeTo(null);
+        frameQuiz.setLocationRelativeTo(null);
+        frameNotes.setLocationRelativeTo(null);
         try {
             readQuestions();
         } catch (IOException ex) {
             System.out.println("Error: " + ex.toString());
         }
+        frameQuiz.setVisible(true);
     }
 
     /**
@@ -35,6 +40,43 @@ public class GUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        frameQuiz = new javax.swing.JFrame();
+        frameNotes = new javax.swing.JFrame();
+        frameQuestions = new javax.swing.JFrame();
+
+        javax.swing.GroupLayout frameQuizLayout = new javax.swing.GroupLayout(frameQuiz.getContentPane());
+        frameQuiz.getContentPane().setLayout(frameQuizLayout);
+        frameQuizLayout.setHorizontalGroup(
+            frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        frameQuizLayout.setVerticalGroup(
+            frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout frameNotesLayout = new javax.swing.GroupLayout(frameNotes.getContentPane());
+        frameNotes.getContentPane().setLayout(frameNotesLayout);
+        frameNotesLayout.setHorizontalGroup(
+            frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        frameNotesLayout.setVerticalGroup(
+            frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout frameQuestionsLayout = new javax.swing.GroupLayout(frameQuestions.getContentPane());
+        frameQuestions.getContentPane().setLayout(frameQuestionsLayout);
+        frameQuestionsLayout.setHorizontalGroup(
+            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        frameQuestionsLayout.setVerticalGroup(
+            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,5 +154,8 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame frameNotes;
+    private javax.swing.JFrame frameQuestions;
+    private javax.swing.JFrame frameQuiz;
     // End of variables declaration//GEN-END:variables
 }
