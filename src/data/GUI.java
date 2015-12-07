@@ -1,5 +1,6 @@
-/** Isaac Wismer & Andrew Xu
- * 
+/**
+ * Isaac Wismer & Andrew Xu
+ *
  */
 package data;
 
@@ -215,6 +216,7 @@ public class GUI extends javax.swing.JFrame {
     /**
      * This method reads the questions for the multiple choice quiz from a text
      * file and places them into an arraylist of questions
+     *
      * @throws IOException If something goes wrong in the process of importing
      */
     public void readQuestions() throws IOException {
@@ -236,6 +238,25 @@ public class GUI extends javax.swing.JFrame {
             questions.add(new Question(ques, answers, correct));
             System.out.println(questions.get(questions.size() - 1).toString());
         }
+    }
+
+    public int[] generateNumbers() {
+        int[] nums = new int[10];
+        for (int i = 0; i < 10; i++) {
+            boolean repeat = true;
+            int n = 0;
+            while (repeat) {
+                repeat = false;
+                n = (int) (Math.random() * questions.size());
+                for (int j = 0; j < i; j++) {
+                    if (n == nums[i]) {
+                        repeat = true;
+                    }
+                }
+            }
+            nums[i] = n;
+        }
+        return nums;
     }
 
     /**
