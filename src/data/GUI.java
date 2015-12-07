@@ -42,10 +42,6 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         frameQuiz = new javax.swing.JFrame();
-        jPanel1 = new javax.swing.JPanel();
-        frameNotes = new javax.swing.JFrame();
-        frameQuestions = new javax.swing.JFrame();
-        btnGChoices = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         rBtnChoice1 = new javax.swing.JRadioButton();
         rBtnChoice2 = new javax.swing.JRadioButton();
@@ -57,58 +53,11 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtQuestion = new javax.swing.JTextArea();
         lblMark = new javax.swing.JLabel();
+        frameNotes = new javax.swing.JFrame();
+        frameQuestions = new javax.swing.JFrame();
+        btnGChoices = new javax.swing.ButtonGroup();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout frameQuizLayout = new javax.swing.GroupLayout(frameQuiz.getContentPane());
-        frameQuiz.getContentPane().setLayout(frameQuizLayout);
-        frameQuizLayout.setHorizontalGroup(
-            frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frameQuizLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        frameQuizLayout.setVerticalGroup(
-            frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frameQuizLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout frameNotesLayout = new javax.swing.GroupLayout(frameNotes.getContentPane());
-        frameNotes.getContentPane().setLayout(frameNotesLayout);
-        frameNotesLayout.setHorizontalGroup(
-            frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        frameNotesLayout.setVerticalGroup(
-            frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout frameQuestionsLayout = new javax.swing.GroupLayout(frameQuestions.getContentPane());
-        frameQuestions.getContentPane().setLayout(frameQuestionsLayout);
-        frameQuestionsLayout.setHorizontalGroup(
-            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        frameQuestionsLayout.setVerticalGroup(
-            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        frameQuiz.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnGChoices.add(rBtnChoice1);
         rBtnChoice1.setText("Choice 1");
@@ -186,21 +135,56 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout frameQuizLayout = new javax.swing.GroupLayout(frameQuiz.getContentPane());
+        frameQuiz.getContentPane().setLayout(frameQuizLayout);
+        frameQuizLayout.setHorizontalGroup(
+            frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameQuizLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        frameQuizLayout.setVerticalGroup(
+            frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameQuizLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout frameNotesLayout = new javax.swing.GroupLayout(frameNotes.getContentPane());
+        frameNotes.getContentPane().setLayout(frameNotesLayout);
+        frameNotesLayout.setHorizontalGroup(
+            frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        frameNotesLayout.setVerticalGroup(
+            frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout frameQuestionsLayout = new javax.swing.GroupLayout(frameQuestions.getContentPane());
+        frameQuestions.getContentPane().setLayout(frameQuestionsLayout);
+        frameQuestionsLayout.setHorizontalGroup(
+            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        frameQuestionsLayout.setVerticalGroup(
+            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 349, Short.MAX_VALUE)
         );
 
         pack();
@@ -273,7 +257,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JFrame frameNotes;
     private javax.swing.JFrame frameQuestions;
     private javax.swing.JFrame frameQuiz;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMark;
