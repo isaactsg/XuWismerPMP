@@ -42,18 +42,48 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         frameQuiz = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
         frameNotes = new javax.swing.JFrame();
         frameQuestions = new javax.swing.JFrame();
+        btnGChoices = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
+        rBtnChoice1 = new javax.swing.JRadioButton();
+        rBtnChoice2 = new javax.swing.JRadioButton();
+        rBtnChoice3 = new javax.swing.JRadioButton();
+        rBtnChoice4 = new javax.swing.JRadioButton();
+        btnNext = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtQuestion = new javax.swing.JTextArea();
+        lblMark = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 625, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 441, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout frameQuizLayout = new javax.swing.GroupLayout(frameQuiz.getContentPane());
         frameQuiz.getContentPane().setLayout(frameQuizLayout);
         frameQuizLayout.setHorizontalGroup(
             frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(frameQuizLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         frameQuizLayout.setVerticalGroup(
             frameQuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(frameQuizLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout frameNotesLayout = new javax.swing.GroupLayout(frameNotes.getContentPane());
@@ -80,15 +110,97 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnGChoices.add(rBtnChoice1);
+        rBtnChoice1.setText("Choice 1");
+
+        btnGChoices.add(rBtnChoice2);
+        rBtnChoice2.setText("Choice 2");
+
+        btnGChoices.add(rBtnChoice3);
+        rBtnChoice3.setText("Choice 3");
+
+        btnGChoices.add(rBtnChoice4);
+        rBtnChoice4.setText("Choice 4");
+
+        btnNext.setText("Next Question");
+
+        btnExit.setText("Exit");
+
+        btnReset.setText("Reset");
+        btnReset.setToolTipText("");
+
+        txtQuestion.setColumns(20);
+        txtQuestion.setRows(5);
+        txtQuestion.setText("Filler Text for the Question");
+        txtQuestion.setEnabled(false);
+        jScrollPane1.setViewportView(txtQuestion);
+
+        lblMark.setText("0/10");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rBtnChoice1)
+                            .addComponent(rBtnChoice2)
+                            .addComponent(rBtnChoice3)
+                            .addComponent(rBtnChoice4))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnExit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReset)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNext)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMark)
+                .addGap(0, 47, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMark))
+                .addGap(18, 18, 18)
+                .addComponent(rBtnChoice1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rBtnChoice2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rBtnChoice3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rBtnChoice4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNext)
+                    .addComponent(btnExit)
+                    .addComponent(btnReset))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -156,8 +268,21 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
+    private javax.swing.ButtonGroup btnGChoices;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnReset;
     private javax.swing.JFrame frameNotes;
     private javax.swing.JFrame frameQuestions;
     private javax.swing.JFrame frameQuiz;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblMark;
+    private javax.swing.JRadioButton rBtnChoice1;
+    private javax.swing.JRadioButton rBtnChoice2;
+    private javax.swing.JRadioButton rBtnChoice3;
+    private javax.swing.JRadioButton rBtnChoice4;
+    private javax.swing.JTextArea txtQuestion;
     // End of variables declaration//GEN-END:variables
 }
