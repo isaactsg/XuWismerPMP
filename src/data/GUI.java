@@ -59,7 +59,10 @@ public class GUI extends javax.swing.JFrame {
         btnGChoices = new javax.swing.ButtonGroup();
         btnStudy = new javax.swing.JButton();
         btnQuiz = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnReview = new javax.swing.JButton();
+        lblWelcome = new javax.swing.JLabel();
+        lblPrompt = new javax.swing.JLabel();
+        btnExitMenu = new javax.swing.JButton();
 
         frameQuiz.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -179,39 +182,104 @@ public class GUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(509, 412));
 
+        btnStudy.setFont(new java.awt.Font("3ds Light", 0, 36)); // NOI18N
         btnStudy.setText("Study the Notes!");
+        btnStudy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStudyActionPerformed(evt);
+            }
+        });
 
+        btnQuiz.setFont(new java.awt.Font("3ds Light", 0, 36)); // NOI18N
         btnQuiz.setText("Take the Quiz!");
+        btnQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuizActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        btnReview.setFont(new java.awt.Font("3ds Light", 0, 36)); // NOI18N
+        btnReview.setText("Review the Questions!");
+        btnReview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReviewActionPerformed(evt);
+            }
+        });
+
+        lblWelcome.setFont(new java.awt.Font("3ds Light", 1, 36)); // NOI18N
+        lblWelcome.setText("Welcome to the Study Machine!");
+
+        lblPrompt.setFont(new java.awt.Font("3ds Light", 0, 14)); // NOI18N
+        lblPrompt.setText("Please select an option to continue");
+
+        btnExitMenu.setFont(new java.awt.Font("3ds Light", 0, 36)); // NOI18N
+        btnExitMenu.setText("Exit!");
+        btnExitMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPrompt)
+                .addGap(150, 150, 150))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnStudy)
-                    .addComponent(btnQuiz)
-                    .addComponent(jButton1))
-                .addContainerGap(370, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblWelcome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnStudy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnQuiz, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExitMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addContainerGap()
+                .addComponent(lblWelcome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPrompt)
+                .addGap(64, 64, 64)
                 .addComponent(btnStudy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnQuiz)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addComponent(btnReview)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExitMenu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudyActionPerformed
+        frameNotes.setVisible(true);
+    }//GEN-LAST:event_btnStudyActionPerformed
+
+    private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
+        frameQuiz.setVisible(true);
+    }//GEN-LAST:event_btnQuizActionPerformed
+
+    private void btnReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewActionPerformed
+        frameNotes.setVisible(true);
+    }//GEN-LAST:event_btnReviewActionPerformed
+
+    private void btnExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMenuActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitMenuActionPerformed
 
     /**
      * This method reads the questions for the multiple choice quiz from a text
@@ -296,18 +364,21 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnExitMenu;
     private javax.swing.ButtonGroup btnGChoices;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnQuiz;
     private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnReview;
     private javax.swing.JButton btnStudy;
     private javax.swing.JFrame frameNotes;
     private javax.swing.JFrame frameQuestions;
     private javax.swing.JFrame frameQuiz;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMark;
+    private javax.swing.JLabel lblPrompt;
+    private javax.swing.JLabel lblWelcome;
     private javax.swing.JRadioButton rBtnChoice1;
     private javax.swing.JRadioButton rBtnChoice2;
     private javax.swing.JRadioButton rBtnChoice3;
