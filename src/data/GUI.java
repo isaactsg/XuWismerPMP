@@ -1,4 +1,4 @@
-/* Isaac Wismer
+/** Isaac Wismer
  * 
  */
 package data;
@@ -55,15 +55,25 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method reads the questions for the multiple choice quiz from a text
+     * file and places them into an arraylist of questions
+     * @throws IOException If something goes wrong in the process of importing
+     */
     public void readQuestions() throws IOException {
-        Scanner s = new Scanner(new File("src//data//questions.txt"));
+        //create a scanner to read the file
+        //This allows us to read the file in a JAR file
+        Scanner s = new Scanner(GUI.class.getResourceAsStream("questions.txt"));
+        //loop while not at the end of the file
         while (s.hasNext()) {
+            //read the question information
             String ques = s.nextLine();
             String[] answers = new String[4];
             for (int i = 0; i < 4; i++) {
                 answers[i] = s.nextLine();
             }
             int correct = s.nextInt();
+            //add to the array list
             questions.add(new Question(ques, answers, correct));
             System.out.println(questions.get(questions.size() - 1).toString());
         }
