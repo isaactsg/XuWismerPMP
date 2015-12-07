@@ -104,14 +104,16 @@ public class GUI extends javax.swing.JFrame {
         //This allows us to read the file in a JAR file
         Scanner s = new Scanner(GUI.class.getResourceAsStream("questions.txt"));
         //loop while not at the end of the file
-        while (s.hasNext()) {
+        while (s.hasNextLine()) {
             //read the question information
             String ques = s.nextLine();
+            //System.out.println(ques);
             String[] answers = new String[4];
             for (int i = 0; i < 4; i++) {
                 answers[i] = s.nextLine();
+                //System.out.println(answers[i]);
             }
-            int correct = s.nextInt();
+            int correct = Integer.parseInt(s.nextLine());
             //add to the array list
             questions.add(new Question(ques, answers, correct));
             System.out.println(questions.get(questions.size() - 1).toString());
