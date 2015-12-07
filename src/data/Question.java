@@ -30,4 +30,10 @@ public class Question {
     public String getIndAnswer(int i) {
         return answers[i];
     }
+
+    @Override
+    public String toString() {
+        return "Question{" + "ques=" + ques + ", answers=" + answers[0] + answers[1] + answers[2] + answers[3] + ", correct=" + correct + '}';
+    }
+
 }

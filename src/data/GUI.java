@@ -3,17 +3,31 @@
  */
 package data;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author isaac
  */
 public class GUI extends javax.swing.JFrame {
 
+    ArrayList<Question> questions = new ArrayList<>();
+
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        try {
+            readQuestions();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -40,6 +54,20 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void readQuestions() throws IOException {
+        Scanner s = new Scanner(new File("src//data//questions.txt"));
+        while (s.hasNext()) {
+            String ques = s.nextLine();
+            String[] answers = new String[4];
+            for (int i = 0; i < 4; i++) {
+                answers[i] = s.nextLine();
+            }
+            int correct = s.nextInt();
+            questions.add(new Question(ques, answers, correct));
+            System.out.println(questions.get(questions.size() - 1).toString());
+        }
+    }
 
     /**
      * @param args the command line arguments
