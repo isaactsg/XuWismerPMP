@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author isaac
  */
 public class GUI extends javax.swing.JFrame {
-
+    
     ArrayList<Question> questions = new ArrayList<>();
     int currentQuestion, quizScore;
     int[] quizQuestions;
@@ -115,6 +115,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         btnReset.setText("Reset");
         btnReset.setToolTipText("");
@@ -404,6 +409,10 @@ public class GUI extends javax.swing.JFrame {
         //reset the GUI
         updateQuiz();
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        frameQuiz.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * this method updates the GUI of the quiz
