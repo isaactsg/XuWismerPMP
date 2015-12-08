@@ -16,6 +16,7 @@ public class Question {
 
     /**
      * This is the constructor for the question.
+     *
      * @param ques the question asked as a string
      * @param answers the answers as an array
      * @param correct the correct answer as an int (A = 0, D = 3)
@@ -28,6 +29,7 @@ public class Question {
 
     /**
      * Returns the question asked
+     *
      * @return the question as a String
      */
     public String getQues() {
@@ -36,6 +38,7 @@ public class Question {
 
     /**
      * Returns all the possible answers as an array of strings
+     *
      * @return all the possible answers as an array of string (size 4)
      */
     public String[] getAnswers() {
@@ -44,6 +47,7 @@ public class Question {
 
     /**
      * returns the index of the correct answer
+     *
      * @return the index of the correct answer as an integer
      */
     public int getCorrect() {
@@ -52,8 +56,9 @@ public class Question {
 
     /**
      * returns a specific answer
+     *
      * @param i the index of the answer as an int (0-3, inclusive)
-     * @return the answer at index i  as a string
+     * @return the answer at index i as a string
      */
     public String getIndAnswer(int i) {
         return answers[i];
@@ -61,11 +66,12 @@ public class Question {
 
     @Override
     public String toString() {
-        return ques + "\nA)" + answers[0] + "\nB)" + answers[1] + "\nC)" + answers[2] + "\nD)" + answers[3] + "\nCorrect Answer: " + (char)(correct + 65);
+        return ques + "\nA)" + answers[0] + "\nB)" + answers[1] + "\nC)" + answers[2] + "\nD)" + answers[3] + "\nCorrect Answer: " + (char) (correct + 65);
     }
 
     /**
      * determines if 2 questions are the same
+     *
      * @param q the question to compare to this question
      * @return true if they are the same, false if not
      */
