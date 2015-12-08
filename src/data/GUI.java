@@ -198,6 +198,8 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        frameNotes.setMinimumSize(new java.awt.Dimension(731, 502));
+
         taReview.setEditable(false);
         taReview.setColumns(20);
         taReview.setLineWrap(true);
@@ -332,20 +334,27 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStudyActionPerformed
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
+        //show the window
         frameQuiz.setVisible(true);
+        //generate the questions
         quizQuestions = generateNumbers();
+        //set the quiz to the beginning
         currentQuestion = 0;
         quizScore = 0;
+        //update the GUI
         updateQuiz();
-
     }//GEN-LAST:event_btnQuizActionPerformed
 
     private void btnReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewActionPerformed
+        //show the window
         frameNotes.setVisible(true);
+        //create the output string
         String review = "";
+        //print the questions to the string
         for (int i = 0; i < questions.size(); i++) {
             review += questions.get(i).toString() + "\n\n";
         }
+        //show the output
         taReview.setText(review);
     }//GEN-LAST:event_btnReviewActionPerformed
 
@@ -354,17 +363,23 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMenuActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        if (rBtnChoice1.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 0) {
-            quizScore++;
-        } else if (rBtnChoice2.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 1) {
-            quizScore++;
-        } else if (rBtnChoice3.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 2) {
-            quizScore++;
-        } else if (rBtnChoice4.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 3) {
-            quizScore++;
+        //stop them from being able to do more than 10
+        if (currentQuestion < 9) {
+            //check for a correct answer
+            if (rBtnChoice1.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 0) {
+                quizScore++;
+            } else if (rBtnChoice2.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 1) {
+                quizScore++;
+            } else if (rBtnChoice3.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 2) {
+                quizScore++;
+            } else if (rBtnChoice4.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 3) {
+                quizScore++;
+            }
+            //increase the current question
+            currentQuestion++;
+            //update the GUI
+            updateQuiz();
         }
-        currentQuestion++;
-        updateQuiz();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void rBtnChoice3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnChoice3ActionPerformed
@@ -384,22 +399,29 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_rBtnChoice4ActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        //put the quiz back to the start
         currentQuestion = 0;
         quizScore = 0;
+        //reset the GUI
         updateQuiz();
     }//GEN-LAST:event_btnResetActionPerformed
 
     public void updateQuiz() {
+        //set the question text
         txtQuestion.setText(questions.get(quizQuestions[currentQuestion]).getQues());
+        //set the possible answers
         rBtnChoice1.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(0));
         rBtnChoice2.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(1));
         rBtnChoice3.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(2));
         rBtnChoice4.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(3));
+        //set the options all to false (doesn't work)
         rBtnChoice1.setSelected(false);
         rBtnChoice2.setSelected(false);
         rBtnChoice3.setSelected(false);
         rBtnChoice4.setSelected(false);
+        //update the score
         lblMark.setText(quizScore + "/" + (currentQuestion));
+        //disable the next questions button (no option has been selected)
         btnNext.setEnabled(false);
     }
 

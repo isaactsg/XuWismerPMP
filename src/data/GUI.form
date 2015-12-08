@@ -191,6 +191,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="frameNotes">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[731, 502]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
