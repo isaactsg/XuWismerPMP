@@ -61,7 +61,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question: " + ques + "\nA)" + answers[0] + "\nB)" + answers[1] + "\nC)" + answers[2] + "\nD)" + answers[3] + "\nCorrect Answer: " + correct;
+        return ques + "\nA)" + answers[0] + "\nB)" + answers[1] + "\nC)" + answers[2] + "\nD)" + answers[3] + "\nCorrect Answer: " + (char)(correct + 65);
     }
 
     /**

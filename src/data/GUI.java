@@ -57,6 +57,9 @@ public class GUI extends javax.swing.JFrame {
         txtQuestion = new javax.swing.JTextArea();
         lblMark = new javax.swing.JLabel();
         frameNotes = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taReview = new javax.swing.JTextArea();
         frameQuestions = new javax.swing.JFrame();
         btnGChoices = new javax.swing.ButtonGroup();
         btnStudy = new javax.swing.JButton();
@@ -195,15 +198,38 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        taReview.setEditable(false);
+        taReview.setColumns(20);
+        taReview.setLineWrap(true);
+        taReview.setRows(5);
+        jScrollPane2.setViewportView(taReview);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout frameNotesLayout = new javax.swing.GroupLayout(frameNotes.getContentPane());
         frameNotes.getContentPane().setLayout(frameNotesLayout);
         frameNotesLayout.setHorizontalGroup(
             frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(frameNotesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         frameNotesLayout.setVerticalGroup(
             frameNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(frameNotesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout frameQuestionsLayout = new javax.swing.GroupLayout(frameQuestions.getContentPane());
@@ -316,6 +342,11 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewActionPerformed
         frameNotes.setVisible(true);
+        String review = "";
+        for (int i = 0; i < questions.size(); i++) {
+            review += questions.get(i).toString() + "\n\n";
+        }
+        taReview.setText(review);
     }//GEN-LAST:event_btnReviewActionPerformed
 
     private void btnExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMenuActionPerformed
@@ -465,8 +496,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JFrame frameNotes;
     private javax.swing.JFrame frameQuestions;
     private javax.swing.JFrame frameQuiz;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblMark;
     private javax.swing.JLabel lblPrompt;
     private javax.swing.JLabel lblWelcome;
@@ -474,6 +507,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rBtnChoice2;
     private javax.swing.JRadioButton rBtnChoice3;
     private javax.swing.JRadioButton rBtnChoice4;
+    private javax.swing.JTextArea taReview;
     private javax.swing.JTextArea txtQuestion;
     // End of variables declaration//GEN-END:variables
 }
