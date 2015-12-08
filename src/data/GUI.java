@@ -1,5 +1,7 @@
 /**
  * Isaac Wismer & Andrew Xu
+ * This is the GUI for the review program
+ * It has review material, a quiz and a way to review the questions
  *
  */
 package data;
@@ -24,7 +26,6 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         setLocationRelativeTo(null);
-        frameQuestions.setLocationRelativeTo(null);
         frameQuiz.setLocationRelativeTo(null);
         frameNotes.setLocationRelativeTo(null);
         try {
@@ -60,7 +61,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         taReview = new javax.swing.JTextArea();
-        frameQuestions = new javax.swing.JFrame();
         btnGChoices = new javax.swing.ButtonGroup();
         btnStudy = new javax.swing.JButton();
         btnQuiz = new javax.swing.JButton();
@@ -198,6 +198,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        frameNotes.setTitle("Review");
         frameNotes.setMinimumSize(new java.awt.Dimension(731, 502));
 
         taReview.setEditable(false);
@@ -232,17 +233,6 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-        );
-
-        javax.swing.GroupLayout frameQuestionsLayout = new javax.swing.GroupLayout(frameQuestions.getContentPane());
-        frameQuestions.getContentPane().setLayout(frameQuestionsLayout);
-        frameQuestionsLayout.setHorizontalGroup(
-            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        frameQuestionsLayout.setVerticalGroup(
-            frameQuestionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -330,7 +320,16 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudyActionPerformed
+        //show the windows
         frameNotes.setVisible(true);
+        //read the notes file
+        Scanner s = new Scanner(GUI.class.getResourceAsStream("notes.txt"));
+        String notes = "";
+        while (s.hasNextLine()) {            
+            notes += s.nextLine();
+        }
+        //show the notes
+        taReview.setText(notes);
     }//GEN-LAST:event_btnStudyActionPerformed
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
@@ -406,6 +405,9 @@ public class GUI extends javax.swing.JFrame {
         updateQuiz();
     }//GEN-LAST:event_btnResetActionPerformed
 
+    /**
+     * this method updates the GUI of the quiz
+     */
     public void updateQuiz() {
         //set the question text
         txtQuestion.setText(questions.get(quizQuestions[currentQuestion]).getQues());
@@ -452,9 +454,18 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * this generates a list of 10 unique integers, the questions to use in the
+     * quiz
+     *
+     * @return an array if 10 unique integers
+     */
     public int[] generateNumbers() {
+        //create the array
         int[] nums = new int[10];
+        //create 10 numbers
         for (int i = 0; i < 10; i++) {
+            //continue to generate the number until it is unique
             boolean repeat = true;
             int n = 0;
             while (repeat) {
@@ -468,6 +479,7 @@ public class GUI extends javax.swing.JFrame {
             }
             nums[i] = n;
         }
+        //return the array
         return nums;
     }
 
@@ -516,7 +528,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnReview;
     private javax.swing.JButton btnStudy;
     private javax.swing.JFrame frameNotes;
-    private javax.swing.JFrame frameQuestions;
     private javax.swing.JFrame frameQuiz;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
