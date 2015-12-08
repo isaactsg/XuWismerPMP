@@ -1,5 +1,7 @@
 /**
  * Isaac Wismer & Andrew Xu
+ * This is the GUI for the review program
+ * It has review material, a quiz and a way to review the questions
  *
  */
 package data;
@@ -406,6 +408,9 @@ public class GUI extends javax.swing.JFrame {
         updateQuiz();
     }//GEN-LAST:event_btnResetActionPerformed
 
+    /**
+     * this method updates the GUI of the quiz
+     */
     public void updateQuiz() {
         //set the question text
         txtQuestion.setText(questions.get(quizQuestions[currentQuestion]).getQues());
@@ -452,9 +457,18 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * this generates a list of 10 unique integers, the questions to use in the
+     * quiz
+     *
+     * @return an array if 10 unique integers
+     */
     public int[] generateNumbers() {
+        //create the array
         int[] nums = new int[10];
+        //create 10 numbers
         for (int i = 0; i < 10; i++) {
+            //continue to generate the number until it is unique
             boolean repeat = true;
             int n = 0;
             while (repeat) {
@@ -468,6 +482,7 @@ public class GUI extends javax.swing.JFrame {
             }
             nums[i] = n;
         }
+        //return the array
         return nums;
     }
 
