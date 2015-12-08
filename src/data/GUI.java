@@ -15,6 +15,8 @@ import java.util.Scanner;
 public class GUI extends javax.swing.JFrame {
 
     ArrayList<Question> questions = new ArrayList<>();
+    int currentQuestion, quizScore;
+    int[] quizQuestions;
 
     /**
      * Creates new form GUI
@@ -64,26 +66,60 @@ public class GUI extends javax.swing.JFrame {
         lblPrompt = new javax.swing.JLabel();
         btnExitMenu = new javax.swing.JButton();
 
+        frameQuiz.setTitle("Quiz");
         frameQuiz.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        frameQuiz.setMinimumSize(new java.awt.Dimension(469, 335));
+        frameQuiz.setResizable(false);
 
         btnGChoices.add(rBtnChoice1);
         rBtnChoice1.setText("Choice 1");
+        rBtnChoice1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rBtnChoice1ActionPerformed(evt);
+            }
+        });
 
         btnGChoices.add(rBtnChoice2);
         rBtnChoice2.setText("Choice 2");
+        rBtnChoice2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rBtnChoice2ActionPerformed(evt);
+            }
+        });
 
         btnGChoices.add(rBtnChoice3);
         rBtnChoice3.setText("Choice 3");
+        rBtnChoice3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rBtnChoice3ActionPerformed(evt);
+            }
+        });
 
         btnGChoices.add(rBtnChoice4);
         rBtnChoice4.setText("Choice 4");
+        rBtnChoice4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rBtnChoice4ActionPerformed(evt);
+            }
+        });
 
         btnNext.setText("Next Question");
+        btnNext.setEnabled(false);
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
         btnExit.setText("Exit");
 
         btnReset.setText("Reset");
         btnReset.setToolTipText("");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         txtQuestion.setColumns(20);
         txtQuestion.setRows(5);
@@ -271,6 +307,11 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
         frameQuiz.setVisible(true);
+        quizQuestions = generateNumbers();
+        currentQuestion = 0;
+        quizScore = 0;
+        updateQuiz();
+
     }//GEN-LAST:event_btnQuizActionPerformed
 
     private void btnReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewActionPerformed
@@ -280,6 +321,56 @@ public class GUI extends javax.swing.JFrame {
     private void btnExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMenuActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitMenuActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        if (rBtnChoice1.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 0) {
+            quizScore++;
+        } else if (rBtnChoice2.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 1) {
+            quizScore++;
+        } else if (rBtnChoice3.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 2) {
+            quizScore++;
+        } else if (rBtnChoice4.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 3) {
+            quizScore++;
+        }
+        currentQuestion++;
+        updateQuiz();
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void rBtnChoice3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnChoice3ActionPerformed
+        btnNext.setEnabled(true);
+    }//GEN-LAST:event_rBtnChoice3ActionPerformed
+
+    private void rBtnChoice1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnChoice1ActionPerformed
+        btnNext.setEnabled(true);
+    }//GEN-LAST:event_rBtnChoice1ActionPerformed
+
+    private void rBtnChoice2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnChoice2ActionPerformed
+        btnNext.setEnabled(true);
+    }//GEN-LAST:event_rBtnChoice2ActionPerformed
+
+    private void rBtnChoice4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnChoice4ActionPerformed
+        btnNext.setEnabled(true);
+    }//GEN-LAST:event_rBtnChoice4ActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        currentQuestion = 0;
+        quizScore = 0;
+        updateQuiz();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    public void updateQuiz() {
+        txtQuestion.setText(questions.get(quizQuestions[currentQuestion]).getQues());
+        rBtnChoice1.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(0));
+        rBtnChoice2.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(1));
+        rBtnChoice3.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(2));
+        rBtnChoice4.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(3));
+        rBtnChoice1.setSelected(false);
+        rBtnChoice2.setSelected(false);
+        rBtnChoice3.setSelected(false);
+        rBtnChoice4.setSelected(false);
+        lblMark.setText(quizScore + "/" + (currentQuestion));
+        btnNext.setEnabled(false);
+    }
 
     /**
      * This method reads the questions for the multiple choice quiz from a text
