@@ -69,6 +69,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblQuestion = new javax.swing.JLabel();
         rbHidden = new javax.swing.JRadioButton();
+        lblCorrect = new javax.swing.JLabel();
         frameNotes = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -165,6 +166,8 @@ public class GUI extends javax.swing.JFrame {
         rbHidden.setHideActionText(true);
         rbHidden.setOpaque(false);
 
+        lblCorrect.setText("The Last Question Was:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -181,21 +184,24 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnExit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNext))
+                    .addComponent(lblCorrect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rBtnChoice1)
-                            .addComponent(rBtnChoice2)
-                            .addComponent(rBtnChoice3)
-                            .addComponent(rBtnChoice4)
-                            .addComponent(rbHidden))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnExit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnReset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNext))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rBtnChoice1)
+                                    .addComponent(rBtnChoice2)
+                                    .addComponent(rBtnChoice3)
+                                    .addComponent(rBtnChoice4)
+                                    .addComponent(rbHidden))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +228,9 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(lblQuestion)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbHidden)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCorrect, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNext)
                     .addComponent(btnExit)
@@ -357,16 +365,16 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblWelcome))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
+                        .addGap(155, 155, 155)
                         .addComponent(lblPrompt))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnStudy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnQuiz, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnReview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnExitMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +383,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPrompt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addComponent(btnStudy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnQuiz)
@@ -383,7 +391,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(btnReview)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExitMenu)
-                .addGap(34, 34, 34))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -453,12 +461,18 @@ public class GUI extends javax.swing.JFrame {
             //check for a correct answer
             if (rBtnChoice1.isSelected() && questions.get(currentQuestion).getCorrect() == 0) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
             } else if (rBtnChoice2.isSelected() && questions.get(currentQuestion).getCorrect() == 1) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
             } else if (rBtnChoice3.isSelected() && questions.get(currentQuestion).getCorrect() == 2) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
             } else if (rBtnChoice4.isSelected() && questions.get(currentQuestion).getCorrect() == 3) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
+            } else {
+                lblCorrect.setText("The Last Question Was: Wrong!");
             }
             //increase the current question
             currentQuestion++;
@@ -468,12 +482,18 @@ public class GUI extends javax.swing.JFrame {
             //check for a correct answer
             if (rBtnChoice1.isSelected() && questions.get(currentQuestion).getCorrect() == 0) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
             } else if (rBtnChoice2.isSelected() && questions.get(currentQuestion).getCorrect() == 1) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
             } else if (rBtnChoice3.isSelected() && questions.get(currentQuestion).getCorrect() == 2) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
             } else if (rBtnChoice4.isSelected() && questions.get(currentQuestion).getCorrect() == 3) {
                 quizScore++;
+                lblCorrect.setText("The Last Question Was: Correct!");
+            } else {
+                lblCorrect.setText("The Last Question Was: Wrong!");
             }
             //update the score
             lblMark.setText(quizScore + "/" + (currentQuestion));
@@ -637,6 +657,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCorrect;
     private javax.swing.JLabel lblMark;
     private javax.swing.JLabel lblPrompt;
     private javax.swing.JLabel lblQuestion;
