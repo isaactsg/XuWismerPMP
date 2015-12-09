@@ -36,7 +36,7 @@ Crayons
 3
 What is the Software Development Process?
 A program with flashy colours
-Creating high-quality software involves organization, planning and utilizing various diagrammatic conventions 
+Creating high-quality software involves numerous steps 
 The process that develops the program
 An A.I.
 1
@@ -101,9 +101,9 @@ Both A and B
 None of the above
 2
 Which of the following is a pro of Gantt Charts?
-Helps project managers to visualize, schedule, and track scheduled as well as actual progress of projects
-Helps project managers to party, schedule, and track parties as well as actual party prep
-Helps party managers to visualize, schedule, and track scheduled as well as actual progress of projects
+Helps project managers to visualize, schedule, and track progress of projects
+Helps project managers to party, schedule, and track parties
+Helps party managers to visualize, schedule, projects
 Helps project teams to party hard, schedule harder and track their best
 0
 What does UML do to complex software designs?
