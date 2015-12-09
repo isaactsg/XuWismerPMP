@@ -1,1 +1,26 @@
-Unit 3
+The Development Cycle
+--------------------
+Developing projects involves a process:
+    Movie  - script and storyboard
+    Science experiment – scientific method
+    Construction – blueprint
+    Software development – a plan (wait and see!)
+
+The Waterfall Model consists of several phases: 
+    Customer Request / Problem Statement
+    Analysis 
+    Design 
+    Implementation 
+    Integration /Test
+    Maintenance 
+
+*****Mistakes found early in the SDLC are much less expensive to correct than those found late.*****
+
+The cost of developing software is not spread equally over the phases.  
+The percentages shown are typical.
+    Integration = 8%
+    Implementation = 8%
+    Design  = 8%
+    Analysis = 8%
+    Maintenance = 68%
+
