@@ -71,6 +71,7 @@ public class GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         taReview = new javax.swing.JTextArea();
+        cbChoice = new javax.swing.JComboBox();
         btnGChoices = new javax.swing.ButtonGroup();
         btnStudy = new javax.swing.JButton();
         btnQuiz = new javax.swing.JButton();
@@ -247,21 +248,37 @@ public class GUI extends javax.swing.JFrame {
         frameNotes.setTitle("Review");
         frameNotes.setMinimumSize(new java.awt.Dimension(731, 502));
 
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel1.setForeground(new java.awt.Color(0, 255, 0));
+        jPanel1.setOpaque(false);
+
         taReview.setEditable(false);
         taReview.setColumns(20);
+        taReview.setFont(new java.awt.Font("3ds Light", 0, 14)); // NOI18N
         taReview.setLineWrap(true);
         taReview.setRows(5);
+        taReview.setCaretColor(new java.awt.Color(255, 0, 102));
         jScrollPane2.setViewportView(taReview);
+
+        cbChoice.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "The System", "How to Measure Success", "The Development Process", "Gantt Charts", "Unified Modelling Language" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cbChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout frameNotesLayout = new javax.swing.GroupLayout(frameNotes.getContentPane());
@@ -371,6 +388,7 @@ public class GUI extends javax.swing.JFrame {
         if (frameQuiz.isVisible()){
             JOptionPane.showMessageDialog(null,"You cannot open notes while the quiz is open");
         } else {
+        cbChoice.setVisible(true);
         frameNotes.setVisible(true);
         //read the notes file
         Scanner s = new Scanner(GUI.class.getResourceAsStream("notes.txt"));
@@ -409,6 +427,7 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"You cannot open the review questions while you're taking a quiz");
         } else {
         frameNotes.setVisible(true);
+        cbChoice.setVisible(false);
         //create the output string
         String review = "";
         //print the questions to the string
@@ -590,6 +609,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReview;
     private javax.swing.JButton btnStudy;
+    private javax.swing.JComboBox cbChoice;
     private javax.swing.JFrame frameNotes;
     private javax.swing.JFrame frameQuiz;
     private javax.swing.JLabel jLabel1;
