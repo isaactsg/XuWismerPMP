@@ -1,16 +1,16 @@
 A System
-\n--------------------
-\nA combination of software and hardware that provides a solution for a business problem
-\n
-\nInvolves: 
-\n\tThe client 
-\n\t\tThe request
-\n\t\tThe money
-\n\tAnalysts
-\n\tDesigners & developers
-\n\tTesters
-\n\tUsers
-\n\tOthers 
-\n\t\tLawyers
-\n\t\tCommunications Officers
-\n\t\tSpecialists
+--------------------
+A combination of software and hardware that provides a solution for a business problem
+
+Involves: 
+\tThe client 
+\t\tThe request
+\t\tThe money
+\tAnalysts
+\tDesigners & developers
+\tTesters
+\tUsers
+\tOthers 
+\t\tLawyers
+\t\tCommunications Officers
+\t\tSpecialists
