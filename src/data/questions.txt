@@ -1,90 +1,60 @@
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
+What is a system?
+A special kind of donut
+A combination of hardware and software that provides a solution
+A business' management hierarchy
+Windows 10
+1
+Which of the following is not involved in systems?
+The request
+The money
+Users
+Donuts
 3
-How much does andrew love men?
-alot
-more than elton john
-none
-It's his life
+Which of the following is involved in systems?
+Designers and Developers
+Hipsters
+The Police
+Love, lots of love
+0
+Which of the following is a good example of a maintained system?
+Windows 98
+Windows Vista
+Windows XP
+Windows 10
+2
+Which of the following is a question to measure success?
+Is it scalable to meet the needs of the client?
+Are the colours terribly bright?
+Bubbles
+I like Computer Science
+0
+Which of the following is not a development process?
+Storyboard
+Blueprint
+SDLC
+Crayons
 3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
-When does the narwal bacon?
-6am
-4pm
-Once in a blue moon
-Midnight
-3
+What is the Software Development Process?
+A program with flashy colours
+Creating high-quality software involves organization, planning and utilizing various diagrammatic conventions 
+The process that develops the program
+An A.I.
+1
+Which of the following is a model of SDLC?
+Cheese Model
+Stream Model
+Waterfall Model
+Step Model
+2
+What does SDLC stand for?
+Software Development Life Cycle
+Silly Dog Likes Cats
+Software Destruction Life Cycle
+Some Dumb Light Cart
+0
+What does UML stand for?
+Ultra Mighty Language
+Unified Modelling Language
+Unified Modelling League
+United Models League
+1
