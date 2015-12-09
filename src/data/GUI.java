@@ -364,6 +364,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudyActionPerformed
         //show the windows
+        //check to see if the user is currently taking a quiz
+        if (frameQuiz.isVisible()){
+            JOptionPane.showMessageDialog(null,"You cannot open notes while the quiz is open");
+        } else {
         frameNotes.setVisible(true);
         //read the notes file
         Scanner s = new Scanner(GUI.class.getResourceAsStream("notes.txt"));
@@ -373,10 +377,16 @@ public class GUI extends javax.swing.JFrame {
         }
         //show the notes
         taReview.setText(notes);
+        }
+        
     }//GEN-LAST:event_btnStudyActionPerformed
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
         //show the window
+        //check to see if the notes are visible
+        if (frameNotes.isVisible()){
+            JOptionPane.showMessageDialog(null,"You cannot have the notes open while you're taking the quiz");
+        } else{
         frameQuiz.setVisible(true);
         //generate the questions
         Collections.shuffle(questions);
@@ -385,10 +395,16 @@ public class GUI extends javax.swing.JFrame {
         quizScore = 0;
         //update the GUI
         updateQuiz();
+        }
+        
     }//GEN-LAST:event_btnQuizActionPerformed
 
     private void btnReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewActionPerformed
         //show the window
+        //Check to see if user is taking a quiz
+        if (frameQuiz.isVisible()){
+            JOptionPane.showMessageDialog(null,"You cannot open the review questions while you're taking a quiz");
+        } else {
         frameNotes.setVisible(true);
         //create the output string
         String review = "";
@@ -398,6 +414,8 @@ public class GUI extends javax.swing.JFrame {
         }
         //show the output
         taReview.setText(review);
+        }
+        
     }//GEN-LAST:event_btnReviewActionPerformed
 
     private void btnExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMenuActionPerformed
