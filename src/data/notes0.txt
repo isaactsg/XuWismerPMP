@@ -3,14 +3,14 @@ A System
 A combination of software and hardware that provides a solution for a business problem
 
 Involves: 
-\tThe client 
-\t\tThe request
-\t\tThe money
-\tAnalysts
-\tDesigners & developers
-\tTesters
-\tUsers
-\tOthers 
-\t\tLawyers
-\t\tCommunications Officers
-\t\tSpecialists
+	The client 
+		The request
+		The money
+	Analysts
+	Designers & developers
+	Testers
+	Users
+	Others 
+		Lawyers
+		Communications Officers
+		Specialists

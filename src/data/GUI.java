@@ -399,8 +399,8 @@ public class GUI extends javax.swing.JFrame {
             cbChoice.setVisible(true);
             frameNotes.setVisible(true);
             //show the notes
-            System.out.println("notes");
-            System.out.println(notes[0]);
+            //System.out.println("notes");
+            //System.out.println(notes[0]);
             taReview.setText(notes[0]);
         }
 
@@ -519,7 +519,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void cbChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChoiceActionPerformed
         taReview.setText(notes[cbChoice.getSelectedIndex()]);
-        System.out.println("Check");
+        //System.out.println("Check");
     }//GEN-LAST:event_cbChoiceActionPerformed
 
     /**
