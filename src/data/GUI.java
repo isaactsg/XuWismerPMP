@@ -121,7 +121,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setText("Exit");
+        btnExit.setText("Menu");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
