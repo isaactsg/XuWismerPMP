@@ -58,3 +58,63 @@ Unified Modelling Language
 Unified Modelling League
 United Models League
 1
+Who came up with a view of the Software Development Process?
+Computer Hackers
+Web Hunters
+Bounty Hunters
+Computer Scientists
+3
+Which of the following is not part of the WaterFall Model?
+Analysis
+Design
+Maintenance
+Coffee Break
+3
+Mistakes found when in the SDLC are much less expensive?
+Early
+During
+Late
+Never
+0
+Which of the following does not accounts for >8% of costs?
+Eating
+Sleeping
+Maintenance
+Implementation
+2
+Who developed the Gantt chart?
+Charles Gantt
+Henry Gantt
+James Gantt
+Louis Gantt
+1
+Which decade was the Gantt chart developed?
+1890s
+1900s
+1910s
+1920s
+2
+Which of the following used Gantt charts?
+Hoover Dam
+Eisenhower National Defense Interstate Highway System
+Both A and B
+None of the above
+2
+Which of the following is a pro of Gantt Charts?
+Helps project managers to visualize, schedule, and track scheduled as well as actual progress of projects
+Helps project managers to party, schedule, and track parties as well as actual party prep
+Helps party managers to visualize, schedule, and track scheduled as well as actual progress of projects
+Helps project teams to party hard, schedule harder and track their best
+0
+What does UML do to complex software designs?
+Makes them harder to understand
+Transfers them to your brain
+Makes them easier to understand
+I don't know
+2
+What can be complicated to learn for Project Development?
+Sitting
+UML
+UDT
+IDK
+1
