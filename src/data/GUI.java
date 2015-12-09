@@ -9,13 +9,14 @@ package data;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author isaac
  */
 public class GUI extends javax.swing.JFrame {
-    
+
     ArrayList<Question> questions = new ArrayList<>();
     int currentQuestion, quizScore;
     int[] quizQuestions;
@@ -28,6 +29,7 @@ public class GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         frameQuiz.setLocationRelativeTo(null);
         frameNotes.setLocationRelativeTo(null);
+        rbHidden.setVisible(false);
         try {
             readQuestions();
         } catch (IOException ex) {
@@ -60,6 +62,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblQuestion = new javax.swing.JLabel();
+        rbHidden = new javax.swing.JRadioButton();
         frameNotes = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -132,10 +135,12 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        txtQuestion.setEditable(false);
         txtQuestion.setColumns(20);
+        txtQuestion.setLineWrap(true);
         txtQuestion.setRows(5);
         txtQuestion.setText("Filler Text for the Question");
-        txtQuestion.setEnabled(false);
+        txtQuestion.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtQuestion);
 
         lblMark.setText("0/10");
@@ -146,27 +151,17 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuestion.setText("1 of 10");
 
+        btnGChoices.add(rbHidden);
+        rbHidden.setText("jRadioButton1");
+        rbHidden.setEnabled(false);
+        rbHidden.setFocusable(false);
+        rbHidden.setHideActionText(true);
+        rbHidden.setOpaque(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rBtnChoice1)
-                            .addComponent(rBtnChoice2)
-                            .addComponent(rBtnChoice3)
-                            .addComponent(rBtnChoice4))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnExit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNext)))
-                .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -176,6 +171,24 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(lblQuestion))
                 .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnExit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReset)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNext))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rBtnChoice1)
+                            .addComponent(rBtnChoice2)
+                            .addComponent(rBtnChoice3)
+                            .addComponent(rBtnChoice4)
+                            .addComponent(rbHidden))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +213,9 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(7, 7, 7)
                         .addComponent(lblQuestion)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbHidden)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNext)
                     .addComponent(btnExit)
@@ -352,7 +367,7 @@ public class GUI extends javax.swing.JFrame {
         //read the notes file
         Scanner s = new Scanner(GUI.class.getResourceAsStream("notes.txt"));
         String notes = "";
-        while (s.hasNextLine()) {            
+        while (s.hasNextLine()) {
             notes += s.nextLine();
         }
         //show the notes
@@ -405,6 +420,27 @@ public class GUI extends javax.swing.JFrame {
             currentQuestion++;
             //update the GUI
             updateQuiz();
+        } else {
+            //check for a correct answer
+            if (rBtnChoice1.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 0) {
+                quizScore++;
+            } else if (rBtnChoice2.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 1) {
+                quizScore++;
+            } else if (rBtnChoice3.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 2) {
+                quizScore++;
+            } else if (rBtnChoice4.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 3) {
+                quizScore++;
+            }
+            //update the score
+            lblMark.setText(quizScore + "/" + (currentQuestion));
+            JOptionPane.showMessageDialog(frameQuiz, "You finished the quiz with a score of:\n" + quizScore + "/10\nThe quiz will now reset", "Finished Quiz!", JOptionPane.INFORMATION_MESSAGE);
+            //generate the questions
+            quizQuestions = generateNumbers();
+            //set the quiz to the beginning
+            currentQuestion = 0;
+            quizScore = 0;
+            //update the GUI
+            updateQuiz();
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -452,6 +488,7 @@ public class GUI extends javax.swing.JFrame {
         rBtnChoice2.setSelected(false);
         rBtnChoice3.setSelected(false);
         rBtnChoice4.setSelected(false);
+        rbHidden.setSelected(true);
         //update the score
         lblMark.setText(quizScore + "/" + (currentQuestion));
         lblQuestion.setText((currentQuestion + 1) + " of 10");
@@ -575,6 +612,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rBtnChoice2;
     private javax.swing.JRadioButton rBtnChoice3;
     private javax.swing.JRadioButton rBtnChoice4;
+    private javax.swing.JRadioButton rbHidden;
     private javax.swing.JTextArea taReview;
     private javax.swing.JTextArea txtQuestion;
     // End of variables declaration//GEN-END:variables
