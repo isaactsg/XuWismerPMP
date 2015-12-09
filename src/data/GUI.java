@@ -27,16 +27,19 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        //make everything open in the middle of the screen
         setLocationRelativeTo(null);
         frameQuiz.setLocationRelativeTo(null);
         frameNotes.setLocationRelativeTo(null);
+        //hide the 5th radio button
         rbHidden.setVisible(false);
+        //read the questions
         try {
             readQuestions();
         } catch (IOException ex) {
             System.out.println("Error: " + ex.toString());
         }
-        frameQuiz.setVisible(true);
+        //frameQuiz.setVisible(true);
     }
 
     /**
@@ -507,6 +510,7 @@ public class GUI extends javax.swing.JFrame {
         rBtnChoice2.setSelected(false);
         rBtnChoice3.setSelected(false);
         rBtnChoice4.setSelected(false);
+        //set the hidden radiobutton to true
         rbHidden.setSelected(true);
         //update the score
         lblMark.setText(quizScore + "/" + (currentQuestion));
