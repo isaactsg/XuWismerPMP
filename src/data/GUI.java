@@ -570,7 +570,7 @@ public class GUI extends javax.swing.JFrame {
             int correct = Integer.parseInt(s.nextLine());
             //add to the array list
             questions.add(new Question(ques, answers, correct));
-            System.out.println(questions.get(questions.size() - 1).toString());
+            //System.out.println(questions.get(questions.size() - 1).toString());
         }
     }
     
