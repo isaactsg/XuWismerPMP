@@ -579,7 +579,7 @@ public class GUI extends javax.swing.JFrame {
             Scanner s = new Scanner(GUI.class.getResourceAsStream("notes" + i + ".txt"));
             notes[i] = "";
             while (s.hasNextLine()) {
-                notes[i] += s.nextLine();
+                notes[i] += s.nextLine() + "\n";
             }
         }
     }
