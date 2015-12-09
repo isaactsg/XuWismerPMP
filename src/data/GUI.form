@@ -40,28 +40,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rBtnChoice1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rBtnChoice2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rBtnChoice3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rBtnChoice4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnExit" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnReset" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnNext" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="358" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -72,6 +50,29 @@
                           <Component id="lblQuestion" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnExit" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnReset" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnNext" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rBtnChoice1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnChoice2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnChoice3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnChoice4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbHidden" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -101,7 +102,9 @@
                               <Component id="lblQuestion" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="rbHidden" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnExit" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -192,10 +195,12 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txtQuestion">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                     <Property name="text" type="java.lang.String" value="Filler Text for the Question"/>
-                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -218,6 +223,18 @@
             <Component class="javax.swing.JLabel" name="lblQuestion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="1 of 10"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rbHidden">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btnGChoices"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="hideActionText" type="boolean" value="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
