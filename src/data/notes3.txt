@@ -1,0 +1,8 @@
+Gantt Chart
+--------------------
+- Developed by Henry Gantt in the 1910’s
+- Tool typically used by people working on a large project
+- Hoover Dam
+- Eisenhower National Defense Interstate Highway System
+- Helps project managers to visualize, schedule, and track scheduled as well as actual progress of projects
+
