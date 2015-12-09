@@ -86,6 +86,7 @@ public class GUI extends javax.swing.JFrame {
         frameQuiz.setResizable(false);
 
         btnGChoices.add(rBtnChoice1);
+        rBtnChoice1.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         rBtnChoice1.setText("Choice 1");
         rBtnChoice1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +95,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnGChoices.add(rBtnChoice2);
+        rBtnChoice2.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         rBtnChoice2.setText("Choice 2");
         rBtnChoice2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +104,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnGChoices.add(rBtnChoice3);
+        rBtnChoice3.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         rBtnChoice3.setText("Choice 3");
         rBtnChoice3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +113,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnGChoices.add(rBtnChoice4);
+        rBtnChoice4.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         rBtnChoice4.setText("Choice 4");
         rBtnChoice4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +121,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        btnNext.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         btnNext.setText("Next Question");
         btnNext.setEnabled(false);
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        btnExit.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         btnExit.setText("Menu");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +138,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        btnReset.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         btnReset.setText("Reset");
         btnReset.setToolTipText("");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -148,12 +155,16 @@ public class GUI extends javax.swing.JFrame {
         txtQuestion.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtQuestion);
 
+        lblMark.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         lblMark.setText("0/10");
 
+        jLabel1.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         jLabel1.setText("Score");
 
+        jLabel2.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         jLabel2.setText("Question:");
 
+        lblQuestion.setFont(new java.awt.Font("3ds Light", 0, 13)); // NOI18N
         lblQuestion.setText("1 of 10");
 
         btnGChoices.add(rbHidden);
@@ -220,7 +231,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(lblQuestion)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbHidden)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNext)
                     .addComponent(btnExit)
