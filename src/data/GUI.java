@@ -259,6 +259,7 @@ public class GUI extends javax.swing.JFrame {
         taReview.setFont(new java.awt.Font("3ds Light", 0, 14)); // NOI18N
         taReview.setLineWrap(true);
         taReview.setRows(5);
+        taReview.setTabSize(4);
         taReview.setCaretColor(new java.awt.Color(255, 0, 102));
         jScrollPane2.setViewportView(taReview);
 
