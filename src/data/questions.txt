@@ -101,10 +101,10 @@ Both A and B
 None of the above
 2
 Which of the following is a pro of Gantt Charts?
-Helps project managers to visualize, schedule, and track progress of projects
-Helps project managers to party, schedule, and track parties
+Helps managers to visualize, schedule, and track progress of projects
+Helps managers to party, schedule, and track parties
 Helps party managers to visualize, schedule, projects
-Helps project teams to party hard, schedule harder and track their best
+Helps teams to party hard, schedule harder and track their best
 0
 What does UML do to complex software designs?
 Makes them harder to understand
