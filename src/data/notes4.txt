@@ -1,0 +1,6 @@
+Unified Modelling Lanaguage (UML)
+--------------------
+- Unified Modeling Language
+- Visually specifies parts of a system
+- Complex software designs are much more easily described through UML than textually
+- UML can be complicated to learn, you are not required to use it for your projects
