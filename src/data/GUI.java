@@ -17,10 +17,11 @@ import javax.swing.JOptionPane;
  * @author isaac
  */
 public class GUI extends javax.swing.JFrame {
-
+    
     ArrayList<Question> questions = new ArrayList<>();
     int currentQuestion, quizScore;
     int[] quizQuestions;
+    String[] notes = new String[5];
 
     /**
      * Creates new form GUI
@@ -36,6 +37,7 @@ public class GUI extends javax.swing.JFrame {
         //read the questions
         try {
             readQuestions();
+            readNotes();
         } catch (IOException ex) {
             System.out.println("Error: " + ex.toString());
         }
@@ -261,6 +263,11 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2.setViewportView(taReview);
 
         cbChoice.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "The System", "How to Measure Success", "The Development Process", "Gantt Charts", "Unified Modelling Language" }));
+        cbChoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbChoiceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -385,59 +392,55 @@ public class GUI extends javax.swing.JFrame {
     private void btnStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudyActionPerformed
         //show the windows
         //check to see if the user is currently taking a quiz
-        if (frameQuiz.isVisible()){
-            JOptionPane.showMessageDialog(null,"You cannot open notes while the quiz is open");
+        if (frameQuiz.isVisible()) {
+            JOptionPane.showMessageDialog(null, "You cannot open notes while the quiz is open");
         } else {
-        cbChoice.setVisible(true);
-        frameNotes.setVisible(true);
-        //read the notes file
-        Scanner s = new Scanner(GUI.class.getResourceAsStream("notes.txt"));
-        String notes = "";
-        while (s.hasNextLine()) {
-            notes += s.nextLine();
+            cbChoice.setVisible(true);
+            frameNotes.setVisible(true);
+            //show the notes
+            System.out.println("notes");
+            System.out.println(notes[0]);
+            taReview.setText(notes[0]);
         }
-        //show the notes
-        taReview.setText(notes);
-        }
-        
+
     }//GEN-LAST:event_btnStudyActionPerformed
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
         //show the window
         //check to see if the notes are visible
-        if (frameNotes.isVisible()){
-            JOptionPane.showMessageDialog(null,"You cannot have the notes open while you're taking the quiz");
-        } else{
-        frameQuiz.setVisible(true);
-        //generate the questions
-        Collections.shuffle(questions);
-        //set the quiz to the beginning
-        currentQuestion = 0;
-        quizScore = 0;
-        //update the GUI
-        updateQuiz();
+        if (frameNotes.isVisible()) {
+            JOptionPane.showMessageDialog(null, "You cannot have the notes open while you're taking the quiz");
+        } else {
+            frameQuiz.setVisible(true);
+            //generate the questions
+            Collections.shuffle(questions);
+            //set the quiz to the beginning
+            currentQuestion = 0;
+            quizScore = 0;
+            //update the GUI
+            updateQuiz();
         }
-        
+
     }//GEN-LAST:event_btnQuizActionPerformed
 
     private void btnReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReviewActionPerformed
         //show the window
         //Check to see if user is taking a quiz
-        if (frameQuiz.isVisible()){
-            JOptionPane.showMessageDialog(null,"You cannot open the review questions while you're taking a quiz");
+        if (frameQuiz.isVisible()) {
+            JOptionPane.showMessageDialog(null, "You cannot open the review questions while you're taking a quiz");
         } else {
-        frameNotes.setVisible(true);
-        cbChoice.setVisible(false);
-        //create the output string
-        String review = "";
-        //print the questions to the string
-        for (int i = 0; i < questions.size(); i++) {
-            review += questions.get(i).toString() + "\n\n";
+            frameNotes.setVisible(true);
+            cbChoice.setVisible(false);
+            //create the output string
+            String review = "";
+            //print the questions to the string
+            for (int i = 0; i < questions.size(); i++) {
+                review += questions.get(i).toString() + "\n\n";
+            }
+            //show the output
+            taReview.setText(review);
         }
-        //show the output
-        taReview.setText(review);
-        }
-        
+
     }//GEN-LAST:event_btnReviewActionPerformed
 
     private void btnExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMenuActionPerformed
@@ -513,6 +516,11 @@ public class GUI extends javax.swing.JFrame {
         frameQuiz.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void cbChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChoiceActionPerformed
+        taReview.setText(notes[cbChoice.getSelectedIndex()]);
+        System.out.println("Check");
+    }//GEN-LAST:event_cbChoiceActionPerformed
+
     /**
      * this method updates the GUI of the quiz
      */
@@ -562,6 +570,17 @@ public class GUI extends javax.swing.JFrame {
             //add to the array list
             questions.add(new Question(ques, answers, correct));
             System.out.println(questions.get(questions.size() - 1).toString());
+        }
+    }
+    
+    public void readNotes() {
+        for (int i = 0; i < 5; i++) {
+            //read the notes file
+            Scanner s = new Scanner(GUI.class.getResourceAsStream("notes" + i + ".txt"));
+            notes[i] = "";
+            while (s.hasNextLine()) {
+                notes[i] += s.nextLine();
+            }
         }
     }
 
