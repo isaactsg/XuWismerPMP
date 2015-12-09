@@ -1,16 +1,1 @@
-A System
---------------------
--A combination of software and hardware that provides a solution for a business problem
--A system involves: 
-    The client
-        The request
-        The money
-    Analysts
-    Designers & developers
-    Testers
-    Users
-    Others
-        Lawyers
-        Communications Officers
-        Specialists
-        
+NOTES!
