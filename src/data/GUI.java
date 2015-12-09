@@ -8,6 +8,7 @@ package data;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -378,7 +379,7 @@ public class GUI extends javax.swing.JFrame {
         //show the window
         frameQuiz.setVisible(true);
         //generate the questions
-        quizQuestions = generateNumbers();
+        Collections.shuffle(questions);
         //set the quiz to the beginning
         currentQuestion = 0;
         quizScore = 0;
@@ -407,13 +408,13 @@ public class GUI extends javax.swing.JFrame {
         //stop them from being able to do more than 10
         if (currentQuestion < 9) {
             //check for a correct answer
-            if (rBtnChoice1.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 0) {
+            if (rBtnChoice1.isSelected() && questions.get(currentQuestion).getCorrect() == 0) {
                 quizScore++;
-            } else if (rBtnChoice2.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 1) {
+            } else if (rBtnChoice2.isSelected() && questions.get(currentQuestion).getCorrect() == 1) {
                 quizScore++;
-            } else if (rBtnChoice3.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 2) {
+            } else if (rBtnChoice3.isSelected() && questions.get(currentQuestion).getCorrect() == 2) {
                 quizScore++;
-            } else if (rBtnChoice4.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 3) {
+            } else if (rBtnChoice4.isSelected() && questions.get(currentQuestion).getCorrect() == 3) {
                 quizScore++;
             }
             //increase the current question
@@ -422,20 +423,20 @@ public class GUI extends javax.swing.JFrame {
             updateQuiz();
         } else {
             //check for a correct answer
-            if (rBtnChoice1.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 0) {
+            if (rBtnChoice1.isSelected() && questions.get(currentQuestion).getCorrect() == 0) {
                 quizScore++;
-            } else if (rBtnChoice2.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 1) {
+            } else if (rBtnChoice2.isSelected() && questions.get(currentQuestion).getCorrect() == 1) {
                 quizScore++;
-            } else if (rBtnChoice3.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 2) {
+            } else if (rBtnChoice3.isSelected() && questions.get(currentQuestion).getCorrect() == 2) {
                 quizScore++;
-            } else if (rBtnChoice4.isSelected() && questions.get(quizQuestions[currentQuestion]).getCorrect() == 3) {
+            } else if (rBtnChoice4.isSelected() && questions.get(currentQuestion).getCorrect() == 3) {
                 quizScore++;
             }
             //update the score
             lblMark.setText(quizScore + "/" + (currentQuestion));
             JOptionPane.showMessageDialog(frameQuiz, "You finished the quiz with a score of:\n" + quizScore + "/10\nThe quiz will now reset", "Finished Quiz!", JOptionPane.INFORMATION_MESSAGE);
             //generate the questions
-            quizQuestions = generateNumbers();
+            Collections.shuffle(questions);
             //set the quiz to the beginning
             currentQuestion = 0;
             quizScore = 0;
@@ -477,12 +478,12 @@ public class GUI extends javax.swing.JFrame {
      */
     public void updateQuiz() {
         //set the question text
-        txtQuestion.setText(questions.get(quizQuestions[currentQuestion]).getQues());
+        txtQuestion.setText(questions.get(currentQuestion).getQues());
         //set the possible answers
-        rBtnChoice1.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(0));
-        rBtnChoice2.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(1));
-        rBtnChoice3.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(2));
-        rBtnChoice4.setText(questions.get(quizQuestions[currentQuestion]).getIndAnswer(3));
+        rBtnChoice1.setText(questions.get(currentQuestion).getIndAnswer(0));
+        rBtnChoice2.setText(questions.get(currentQuestion).getIndAnswer(1));
+        rBtnChoice3.setText(questions.get(currentQuestion).getIndAnswer(2));
+        rBtnChoice4.setText(questions.get(currentQuestion).getIndAnswer(3));
         //set the options all to false (doesn't work)
         rBtnChoice1.setSelected(false);
         rBtnChoice2.setSelected(false);
@@ -521,35 +522,6 @@ public class GUI extends javax.swing.JFrame {
             questions.add(new Question(ques, answers, correct));
             System.out.println(questions.get(questions.size() - 1).toString());
         }
-    }
-
-    /**
-     * this generates a list of 10 unique integers, the questions to use in the
-     * quiz
-     *
-     * @return an array if 10 unique integers
-     */
-    public int[] generateNumbers() {
-        //create the array
-        int[] nums = new int[10];
-        //create 10 numbers
-        for (int i = 0; i < 10; i++) {
-            //continue to generate the number until it is unique
-            boolean repeat = true;
-            int n = 0;
-            while (repeat) {
-                repeat = false;
-                n = (int) (Math.random() * questions.size());
-                for (int j = 0; j < i; j++) {
-                    if (n == nums[i]) {
-                        repeat = true;
-                    }
-                }
-            }
-            nums[i] = n;
-        }
-        //return the array
-        return nums;
     }
 
     /**
